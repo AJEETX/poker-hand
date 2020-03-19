@@ -12,20 +12,20 @@ namespace PokerHand.Sorter.Domain
     {
         readonly IPokerHandSortService _pokerHandSortService;
         readonly IPokerHandsProviderService _pokerHandsProviderService;
-        readonly IConsole _console;
+        readonly IConsoleService _consoleService;
         PokerHandsResult result = new PokerHandsResult();
-        public PokerHandManagerService(IPokerHandSortService pokerHandSortService, IPokerHandsProviderService pokerHandsProviderService,IConsole console)
+        public PokerHandManagerService(IPokerHandSortService pokerHandSortService, IPokerHandsProviderService pokerHandsProviderService, IConsoleService consoleService)
         {
             _pokerHandsProviderService = pokerHandsProviderService;
             _pokerHandSortService = pokerHandSortService;
-            _console = console;
+            _consoleService = consoleService;
         }
         public PokerHandsResult GetPokerHandsWinner()
         {
             try
             {
-                _console.WriteLine("Please enter input or press ENTER to fetch input from file");
-                var input = _console.ReadLine();
+                _consoleService.WriteLine("Please enter input or press ENTER to fetch input from file");
+                var input = _consoleService.ReadLine();
                 result = !string.IsNullOrWhiteSpace(input)? GetwinnerForInput(input): GetwinnerForFile();
             }
             catch (Exception)
@@ -37,7 +37,7 @@ namespace PokerHand.Sorter.Domain
 
         PokerHandsResult GetwinnerForFile()
         {
-            _console.WriteLine("No input provided, getting input from file...");
+            _consoleService.WriteLine("No input provided, getting input from file...");
             
             var strPokerHands = _pokerHandsProviderService.GetPokerHands(new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build()["path"]); //get poker hands from path
 

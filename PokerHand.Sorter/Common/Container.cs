@@ -13,7 +13,7 @@ namespace PokerHand.Sorter.Common
         public static IServiceProvider RegisterServices()
         {
             var collection = new ServiceCollection();
-            collection.AddSingleton<IConsole, ConsoleWrapper>()
+            collection.AddSingleton<IConsoleService, ConsoleService>()
                 .AddSingleton<IPokerHandManagerService, PokerHandManagerService>()
                 .AddSingleton<IPokerHandsProviderService, PokerHandsProviderService>()
                 .AddSingleton<IPokerHandSortService, PokerHandSortService>()

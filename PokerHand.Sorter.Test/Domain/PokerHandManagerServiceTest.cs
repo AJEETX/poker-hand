@@ -20,12 +20,12 @@ namespace PokerHand.Sorter.Test.Domain
 
             moqPokerHandsProviderService.Setup(m => m.GetPokerHands(It.IsAny<string>())).Returns(new string[] { input });
 
-            var moqConsole = new Mock<IConsole>();
+            var moqConsoleService = new Mock<IConsoleService>();
 
-            moqConsole.Setup(m => m.ReadLine()).Returns(input);
-            moqConsole.Setup(m => m.WriteLine(It.IsAny<string>())).Verifiable();
+            moqConsoleService.Setup(m => m.ReadLine()).Returns(input);
+            moqConsoleService.Setup(m => m.WriteLine(It.IsAny<string>())).Verifiable();
 
-            var sut = new PokerHandManagerService(moqPokerHandSortService.Object, moqPokerHandsProviderService.Object,moqConsole.Object);
+            var sut = new PokerHandManagerService(moqPokerHandSortService.Object, moqPokerHandsProviderService.Object,moqConsoleService.Object);
 
             //when
             var result = sut.GetPokerHandsWinner();
@@ -33,8 +33,8 @@ namespace PokerHand.Sorter.Test.Domain
             //then
             Assert.IsType<PokerHandsResult>(result);
             Assert.True(result.Player1 == player1WinCount);
-            moqConsole.Verify(v => v.ReadLine(), Times.Once);
-            moqConsole.Verify(v => v.WriteLine(It.IsAny<string>()), Times.Once);
+            moqConsoleService.Verify(v => v.ReadLine(), Times.Once);
+            moqConsoleService.Verify(v => v.WriteLine(It.IsAny<string>()), Times.Once);
             moqPokerHandsProviderService.Verify(v => v.GetPokerHands(It.IsAny<string>()), Times.Never);
             moqPokerHandSortService.Verify(v => v.GetPokerHandsWinner(It.IsAny<PokerHands>()), Times.Once);
         }

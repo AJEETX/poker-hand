@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PokerHand.Sorter.Domain
 {
-    public interface IConsole
+    public interface IConsoleService
     {
         void WriteLine(string message);
         string ReadLine();
     }
-    class ConsoleWrapper : IConsole
+    class ConsoleService : IConsoleService
     {
         public void WriteLine(string message)
         {
