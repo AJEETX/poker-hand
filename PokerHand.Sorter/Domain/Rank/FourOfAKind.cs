@@ -10,7 +10,7 @@ namespace PokerHand.Sorter.Domain.Rank
     {
         readonly IFullHouse _fullHouse;
         readonly int sameTypeCount=4;
-        protected int FOUR_OF_A_KIND => 7000000; // + Quads Card Rank
+        protected int FOUR_OF_A_KIND => 7000000; 
 
         public FourOfAKind(IFullHouse fullHouse) 
         {

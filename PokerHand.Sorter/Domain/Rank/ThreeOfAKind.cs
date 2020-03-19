@@ -10,7 +10,7 @@ namespace PokerHand.Sorter.Domain.Rank
     {
         readonly  ITwoPair _twoPair;
         readonly int same3TypeCount = 3;
-        protected int SET  => 3000000; // + Set card value
+        protected int THREE_OF_A_KIND  => 3000000; 
         public ThreeOfAKind(ITwoPair twoPair)
         {
             _twoPair = twoPair;
@@ -39,7 +39,7 @@ namespace PokerHand.Sorter.Domain.Rank
         {
             var ordered = cards.OrderBy(c => c.Value);
 
-            return SET + (int)ordered.ElementAt(2).Value;
+            return THREE_OF_A_KIND + (int)ordered.ElementAt(2).Value;
         }
     }
 }

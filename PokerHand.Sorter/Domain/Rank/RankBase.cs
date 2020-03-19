@@ -10,9 +10,9 @@ namespace PokerHand.Sorter.Domain.Rank
     }
     abstract class RankBase : IRank
     {
-        protected int FLUSH => 5000000; // + valueHighCard()
+        protected int FLUSH => 5000000; 
 
-        protected int STRAIGHT => 4000000; // + ValueHighCard()
+        protected int STRAIGHT => 4000000; 
 
         protected bool IsValid(IEnumerable<PlayerCard> cards)
         {

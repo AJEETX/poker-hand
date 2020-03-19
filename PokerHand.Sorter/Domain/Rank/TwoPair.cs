@@ -10,7 +10,7 @@ namespace PokerHand.Sorter.Domain.Rank
     {
         readonly IPair _pair;
         readonly int same2TypeCount = 2;
-        protected int TWO_PAIRS => 2000000;  // + High2*14^4+ Low2*14^2 + card
+        protected int TWO_PAIRS => 2000000;  
         public TwoPair(IPair pair)
         {
             _pair = pair;

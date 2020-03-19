@@ -10,7 +10,7 @@ namespace PokerHand.Sorter.Domain.Rank
     {
         readonly IFlush _flush;
         readonly int threeSameTypeCount = 3,twoSameTypeCount=2;
-        protected int FULL_HOUSE => 6000000; // + SET card rank
+        protected int FULL_HOUSE => 6000000; 
 
         public FullHouse(IFlush flush)
         {

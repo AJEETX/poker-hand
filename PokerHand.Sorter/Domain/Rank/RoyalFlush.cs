@@ -6,11 +6,11 @@ using System.Linq;
 namespace PokerHand.Sorter.Domain.Rank
 {
     public interface IRoyalStraightFlush : IRank { }
-    class RoyalStraightFlush: RankBase,IRoyalStraightFlush
+    class RoyalFlush: RankBase,IRoyalStraightFlush
     {
         readonly IStraightFlush _straightFlush;
         protected int ROYAL_FLUSH => STRAIGHT + FLUSH + 14;
-        public RoyalStraightFlush(IStraightFlush straightFlush)
+        public RoyalFlush(IStraightFlush straightFlush)
         {
             _straightFlush = straightFlush;
         }

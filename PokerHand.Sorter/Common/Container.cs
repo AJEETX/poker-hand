@@ -23,7 +23,7 @@ namespace PokerHand.Sorter.Common
                 .AddSingleton<IFlush, Flush>()
                 .AddSingleton<IFourOfAKind, FourOfAKind>()
                 .AddSingleton<IFullHouse, FullHouse>()
-                .AddSingleton<IRoyalStraightFlush, RoyalStraightFlush>()
+                .AddSingleton<IRoyalStraightFlush, RoyalFlush>()
                 .AddSingleton<IStraight, Straight>()
                 .AddSingleton<IStraightFlush, StraightFlush>()
                 .AddSingleton<IThreeOfAKind,ThreeOfAKind>();

@@ -8,7 +8,7 @@ namespace PokerHand.Sorter.Domain.Rank
     class Straight:RankBase,IStraight
     {
         readonly IThreeOfAKind _threeOfAKind;
-        public Straight(IThreeOfAKind threeOfAKind)//:base(cards)
+        public Straight(IThreeOfAKind threeOfAKind)
         {
             _threeOfAKind = threeOfAKind;
         }

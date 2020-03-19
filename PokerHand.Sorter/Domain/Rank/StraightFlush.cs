@@ -10,7 +10,7 @@ namespace PokerHand.Sorter.Domain.Rank
     {
         readonly IFourOfAKind _fourOfAKind;
 
-        protected int STRAIGHT_FLUSH => 8000000; // + ValueHighCard()
+        protected int STRAIGHT_FLUSH => 8000000; 
         public StraightFlush(IFourOfAKind fourOfAKind)
         {
             _fourOfAKind = fourOfAKind;

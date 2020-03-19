@@ -9,7 +9,7 @@ namespace PokerHand.Sorter.Domain.Rank
     class Pair: RankBase, IPair
     {
         readonly IHighCard _highCard;
-        protected int ONE_PAIR => 1000000;  // + high*14^2 + high2*14^1 + low
+        protected int ONE_PAIR => 1000000; 
         public Pair(IHighCard highCard)
         {
             _highCard= highCard;
