@@ -48,25 +48,18 @@ namespace PokerHand.Sorter.Domain
                 return inputItems;
             try
             {
-                inputItems = ValidateString(strInput);
+                inputItems = strInput.Split(' ');
+                foreach (var inputItem in inputItems)
+                {
+                    if (!regex.IsMatch(inputItem))
+                    {
+                        return null;
+                    }
+                }
             }
             catch (Exception)
             {
                 //shout out //throw;
-            }
-            return inputItems;
-
-        }
-        string[] ValidateString(string strInput)
-        {
-            var inputItems = strInput.Split(' ');
-
-            foreach (var inputItem in inputItems)
-            {
-                if (!regex.IsMatch(inputItem))
-                {
-                    return null;
-                }
             }
             return inputItems;
         }
