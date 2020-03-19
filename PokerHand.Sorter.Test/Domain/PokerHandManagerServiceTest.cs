@@ -22,7 +22,7 @@ namespace PokerHand.Sorter.Test.Domain
 
             var moqConsoleService = new Mock<IConsoleService>();
 
-            moqConsoleService.Setup(m => m.ReadLine()).Returns(input);
+            moqConsoleService.Setup(m => m.ReadLine()).Returns(input.Split(' '));
             moqConsoleService.Setup(m => m.WriteLine(It.IsAny<string>())).Verifiable();
 
             var sut = new PokerHandManagerService(moqPokerHandSortService.Object, moqPokerHandsProviderService.Object,moqConsoleService.Object);

@@ -26,7 +26,7 @@ namespace PokerHand.Sorter.Domain
             {
                 _consoleService.WriteLine("Please enter input or press ENTER to fetch input from file");
                 var input = _consoleService.ReadLine();
-                result = !string.IsNullOrWhiteSpace(input)? GetwinnerForInput(input): GetwinnerForFile();
+                result = input!=null && input.Length==10? GetwinnerForInput(input): GetwinnerForFile();
             }
             catch (Exception)
             {
@@ -45,13 +45,14 @@ namespace PokerHand.Sorter.Domain
 
             foreach (var strPokerHand in strPokerHands)
             {
-                result = GetwinnerForInput(strPokerHand);
+                var pokerHand = _consoleService.ValidateInput(strPokerHand);
+                result = GetwinnerForInput(pokerHand);
             }
             return result;
         }
-        PokerHandsResult GetwinnerForInput(string strPokerHand)
+        PokerHandsResult GetwinnerForInput(string[] pokerHand)
         {
-            var handResult = _pokerHandSortService.GetPokerHandsWinner(new PokerHands(strPokerHand.Split(' ')));
+            var handResult = _pokerHandSortService.GetPokerHandsWinner(new PokerHands(pokerHand));
 
             if (handResult == 1) result.Player1++; //player 1 winner
 
