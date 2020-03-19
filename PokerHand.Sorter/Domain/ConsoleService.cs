@@ -11,6 +11,7 @@ namespace PokerHand.Sorter.Domain
     {
         public void WriteLine(string message)
         {
+            if(!string.IsNullOrWhiteSpace(message)) //always good to validate at the entrance
             Console.WriteLine(message);
         }
 
