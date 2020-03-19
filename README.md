@@ -60,6 +60,14 @@ The cards are valued in the order: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King
 
 #### Instruction
 
+> There are 2 projects in the repository: 
+> 
+| # | application  |   type  |  description |
+| --- | --- | --- | ---| --- |
+| 1 | PokerHand.Sorter   |    netcore2.1 console application |  poker hand winner logic|
+| 2 | PokerHand.Sorter.Test  |  Test app  | poker hand winner logic | 
+
+
 >   Kindly close /download the repository.
 
 >   Open the solution file 'PokerHand.Sorter.sln' from VisualStudio 2017 or open through Visual Studio code by going to the downloaded folder location.
